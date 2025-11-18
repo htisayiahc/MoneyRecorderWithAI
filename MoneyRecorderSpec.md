@@ -10,8 +10,45 @@ Controller List :
     Controller Name : UserController 
         Request Mapping : /users
             Functions : 
-                1. GET /hello
+                1. GET /all
                     Description : Get all users
                     Request Body : None
-                    Response : Hello World
+                    Response : 
+                        Example 1 : 
+                            [
+                                {
+                                    "userId": 1,
+                                    "name": "John Doe",
+                                    "email": "john.doe@example.com",
+                                    "createdAt": "2023-09-15T12:00:00",
+                                    "updatedAt": "2023-09-15T12:00:00"
+                                }
+                            ]
+                2. GET /byUserId
+                    Description : Get user by id
+                    Request Body : {
+                        "userId": 1
+                    }
+                    Response : 
+                        Example 1 : 
+                            {
+                                "userId": 1,
+                                "name": "John Doe",
+                                "email": "john.doe@example.com",
+                                "createdAt": "2023-09-15T12:00:00",
+                                "updatedAt": "2023-09-15T12:00:00"
+                            }
+                        
+                3. POST /create
+                    Description : Create new user
+                    Request Body : 
+                        Example 1 : 
+                            {
+                                "name": "John Doe",
+                                "email": "john.doe@example.com",
+                                "password": "password"
+                            }
+                    Response : 
+                        Example 1 : 200 OK
+    Controller Name : 
                 

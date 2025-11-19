@@ -2,6 +2,8 @@ package com.example.MoneyRecorderAIver.Controller;
 
 import com.example.MoneyRecorderAIver.DTO.ExpendRequestDTO;
 import com.example.MoneyRecorderAIver.DTO.ExpendResponseDTO;
+import com.example.MoneyRecorderAIver.DTO.TotalExpendRequestDTO;
+import com.example.MoneyRecorderAIver.DTO.TotalExpendResponseDTO;
 import com.example.MoneyRecorderAIver.DTO.UserIdRequestDTO;
 import com.example.MoneyRecorderAIver.Service.ExpendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,11 @@ public class ExpendController {
     public ResponseEntity<String> createExpend(@RequestBody List<ExpendRequestDTO> expendRequestDTOList) {
         expendService.createExpends(expendRequestDTOList);
         return ResponseEntity.ok("Expend created successfully");
+    }
+
+    @GetMapping("/total")
+    public TotalExpendResponseDTO getTotalExpend(@RequestBody TotalExpendRequestDTO totalExpendRequestDTO) {
+        return expendService.getTotalExpend(totalExpendRequestDTO);
     }
 }
 

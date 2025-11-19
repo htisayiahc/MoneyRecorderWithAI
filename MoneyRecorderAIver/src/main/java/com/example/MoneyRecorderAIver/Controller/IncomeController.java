@@ -2,6 +2,8 @@ package com.example.MoneyRecorderAIver.Controller;
 
 import com.example.MoneyRecorderAIver.DTO.IncomeRequestDTO;
 import com.example.MoneyRecorderAIver.DTO.IncomeResponseDTO;
+import com.example.MoneyRecorderAIver.DTO.TotalIncomeRequestDTO;
+import com.example.MoneyRecorderAIver.DTO.TotalIncomeResponseDTO;
 import com.example.MoneyRecorderAIver.DTO.UserIdRequestDTO;
 import com.example.MoneyRecorderAIver.Service.IncomeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,11 @@ public class IncomeController {
     public ResponseEntity<String> createIncome(@RequestBody List<IncomeRequestDTO> incomeRequestDTOList) {
         incomeService.createIncomes(incomeRequestDTOList);
         return ResponseEntity.ok("Income created successfully");
+    }
+
+    @GetMapping("/total")
+    public TotalIncomeResponseDTO getTotalIncome(@RequestBody TotalIncomeRequestDTO totalIncomeRequestDTO) {
+        return incomeService.getTotalIncome(totalIncomeRequestDTO);
     }
 }
 
